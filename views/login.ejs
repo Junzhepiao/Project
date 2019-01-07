@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login/Registration</title>
+
+</head>
+<body>
+    <main>
+        <a href="/logout">Logout</a>
+        <section class="login">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                <input type="text" name="name" placeholder="name">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section class="register">
+            <h1>Register</h1>
+            <form action="/register" method="POST">
+                <input type="text" name="name" placeholder="Name">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="password-confirm" placeholder="Confirm Password">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
