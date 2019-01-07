@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .container{
+      width: auto;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .card{
+        margin:1%;
+        text-align: center;
+        align-content: center;
+        border: 1px solid black;
+        height: auto;
+        width: 30%;
+      }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ 
+  </head>
+
+  <body>
+  <a href="/">Logout</a>
+
+    <h1>Welcome user_name</h1>
+
+    <a href="/">Post Item</a>
+    <a href="/">Shopping Cart</a>
+    <a href="/">Wish Lists</a>
+
+    <div class="search-container">
+        <form action="/" method="post">
+            <input type="text" placeholder="Search.." name="search" >
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <% for(let i = 0; i<items.length; i++){ %>
+            <div class="card">
+            <h3><%= items[i].name %></h3>
+            <div><img src="<%=items[i].img_url%>" alt='image of products' height= "275" width="275"></div>
+            <div>Description: <%= items[i].description %></div>
+            <div><a class="btn btn-secondary btn-sm btn-block" href="/">Details</a></div>
+            </div>
+        <% } %>
+    </div>
+
+
+
+<footer>&copy; Copyright 2019 Ed & Jun</footer>
+  </body>
+</html>
