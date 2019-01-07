@@ -6,5 +6,4 @@ module.exports = {
           res.render("index", {items: result});
         })
       }
-
 }
