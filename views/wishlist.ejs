@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container">
+        <h3><%= items[i].name %></h3>
+          <div>
+              <img src="<%=items[i].img_url%>" alt='image of products' height= "275" width="275">
+          </div>
+           <div>
+              <p>Description: <%= items[i].description%></p>
+           </div>
+    </div>
+          <div>
+              <button type="button" class="btn-sm">Add</button>
+           </div>
+  </body>
+</html>
