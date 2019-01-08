@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+
+  <body>
+    <section class="container">
+    <h1>Post an item</h1>
+    <form action="/postItem/<%=users.id%>" method="POST">
+        <input type="text" name="item_name" placeholder="Name of Item">
+        <input type="text" name="img_url" placeholder="Image URL">
+        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="date" placeholder="date">
+        <input type="text" name="keyword" placeholder="keyword">
+        <input type="integer" name="price" placeholder="price in doller">
+        <button type="submit">Submit</button>
+    </form>
+
+
+  </body>
+</html>
