@@ -19,7 +19,6 @@ module.exports = {
         if (user.password === req.body.password) {
           req.session.user_id = user.id;
           req.session.user = user
-          console.log(user);
           req.session.save(() => {
             res.redirect('/protected');
           })
