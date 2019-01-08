@@ -15,10 +15,11 @@ module.exports = function(app){
   app.get('/protected', users.showProtected);
 
   //items
-  app.get('/product_details/:id', items.getDetails)
-
+  app.get('/product_details/:id', items.getDetails);
+  app.get('/get_postItem/:id', items.getPostItems);
+  app.post('/postItem/:id', items.postItem);
   //comments
-  app.post('/product_comments/:id', comments.postComments)
+  app.post('/product_comments/:id', comments.postComments);
 }
 
 function authMiddleware(req, res, next) {
