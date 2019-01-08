@@ -5,20 +5,113 @@
     <title>Product Details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1><%=item_name%></h1><br>
+    
+        <style>.star-rating {
+        direction: rtl;
+        display: inline-block;
+        padding: 20px
+    }
 
-       <p>Description:<%=description%></p>
-       <p>rating:<%=rating%></p>
-       <p>comment:<%=comments_content%></p>
+    .star-rating input[type=radio] {
+        display: none
+    }
+
+    .star-rating label {
+        color: #bbb;
+        font-size: 18px;
+        padding: 0;
+        cursor: pointer;
+        -webkit-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover ~ label,
+    .star-rating input[type=radio]:checked ~ label {
+        color: #f2b600
+    }
+    #eachComment{
+        padding:1%;
+    }
+    </style>
+
+
+    </head>
+  <body>
+    <h1><%=items.item_name%></h1><br>
+    <div><img src="<%=items.img_url%>" alt='image of products' height= "275" width="275"></div>
+    <div><p>Description:<%=items.description%></p></div>
+
+        <h1 class="display-6">NOTES:</h1>
+    
+    <% for(let i=0; i<comments.length; i++){ %>
+    <div id="eachComment">   
+    <div><strong><%= comments[i].users_name%></strong> :</div>
+    <%   if (comments[i].rating === 5 ) {%>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <% } else if (comments[i].rating === 4) {%>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <% } else if (comments[i].rating === 3) {%>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <% } else if (comments[i].rating === 2) {%>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <% } else if (comments[i].rating === 1) {%>
+    <i class="active fa fa-star" aria-hidden="true"></i>
+    <% } %>
+    
+    <div><%= comments[i].comment_content%></div>
+    <div><small> -<%= comments[i].created_at%></small></div>
+    </div>
+    <% } %>
+       
+    <form action="/product_comments/<%=items.id%>" method="post">
+    
+    <div><%=users.name%></div>
+
+    <div class="star-rating">
+    <input id="star-5" type="radio" name="rating" value="5">
+    <label for="star-5" title="5 stars">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    <input id="star-4" type="radio" name="rating" value="4">
+    <label for="star-4" title="4 stars">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    <input id="star-3" type="radio" name="rating" value="3">
+    <label for="star-3" title="3 stars">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    <input id="star-2" type="radio" name="rating" value="2">
+    <label for="star-2" title="2 stars">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    <input id="star-1" type="radio" name="rating" value="1">
+    <label for="star-1" title="1 star">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    </div>
+
+    <input type="text" name="comments" placeholder="Enter your comment" style="width: 600px; height: 100px;"><br>
+    <input type="submit" class="btn btn-secondary btn-sm ">
+    </form>
+
 
    <div>
-       <button type="button" class="btn-sm">Add</button>
+       <button type="button" class="btn-sm"><i class="fas fa-cart-plus"></i> Add to Cart</button>
     </div>
     <div>
-       <button type="button" class="btn-sm">edit</button>
+       <button type="button" class="btn-sm">Add to Wish Lists</button>
     </div>
-        <i class="fas fa-cart-plus"></i>
+        
   </body>
 </html>

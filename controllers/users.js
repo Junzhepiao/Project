@@ -17,8 +17,10 @@ module.exports = {
       knex('users').where('name', req.body.name).then((results)=> {
         let user = results[0];
         if (user.password === req.body.password) {
+          req.session.user_name = user.name
           req.session.user_id = user.id;
           req.session.user = user
+          //console.log(req.session.user_name)
           req.session.save(() => {
             res.redirect('/protected');
           })
