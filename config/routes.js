@@ -5,11 +5,12 @@ const users = require("../controllers/users.js")
 module.exports = function(app){
   app.get('/', index.index);
   app.get('/login', users.showLogin);
-  app.post('/login', users.registerLogin)
+  app.post('/register', users.registerLogin)
   app.post('/login', users.login);
 
 
   app.use(authMiddleware);
+  app.get('/protected', users.showProtected);
 
 }
 
