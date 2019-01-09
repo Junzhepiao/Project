@@ -20,6 +20,8 @@ module.exports = function(app){
   app.post('/postItem/:id', items.postItem);
   app.get('/item/details/:id', items.editItem);
   app.post('/item/update/:id', items.updateItem);
+   app.get('/wishlist/:id', items.wishList)
+  // app.post('/wishlist/cart:id', items.fromWishListToCart)
   //app.get('/delete/item/:id', items.deleteItem)
   //comments
   app.post('/product_comments/:id', comments.postComments);

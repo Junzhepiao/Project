@@ -25,3 +25,13 @@ border: 1px solid black;
 height:auto;
 width: 30%;
 margin:40px;
+
+
+text-align: center;
+align-content: center;
+height: auto;
+width: 50%;
+padding:20px;
+margin-bottom: 30px;
+padding-right: 30px;
+overflow-x:visible;

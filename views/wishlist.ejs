@@ -3,22 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>Wishlist</title>
+    <style media="screen">
+
+      .adding{
+        margin: 20px;
+      }
+      .deletion{
+        margin:20px;
+      }
+
+    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <body>
     <div class="container">
-        <h3><%= items[i].name %></h3>
+        <h3><%=items.item_name %></h3>
           <div>
-              <img src="<%=items[i].img_url%>" alt='image of products' height= "275" width="275">
+              <img src="<%=items.img_url%>" alt='image of products' height= "275" width="275">
           </div>
            <div>
-              <p>Description: <%= items[i].description%></p>
+              <p>Description: <%= items.description%></p>
            </div>
     </div>
-          <div>
+
+          <div class="adding">
               <button type="button" class="btn-sm">Add to cart</button>
            </div>
-           <div class="">
+           <div class="deletion">
              <button type="button" name="button">Delete</button>
            </div>
   </body>
