@@ -5,19 +5,33 @@
     <title></title>
     <style media="screen">
     .container{
-      width: auto;
-      height: auto;
+      width: 90%;
+      height: 90%;
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      border:none;
+
+      overflow-x: scroll;
+
+      margin:5%;
+
     }
     .card{
-        margin:1%;
+        margin:7px;
         text-align: center;
         align-content: center;
         border: 1px solid black;
         height: auto;
         width: 30%;
+        padding:20px;
+        margin-bottom: 30px;
+        padding-right: 50px;
+      }
+
+
+      footer{
+        margin-top: 220px;
       }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -27,7 +41,7 @@
 
   <a href="/login">Login</a>
 
-    <h1>Website Title</h1>
+    <h1>Shopright</h1>
 
     <div>
         <h2>Products by other users</h2>
@@ -35,15 +49,17 @@
     <div class="container">
         <% for(let i = 0; i<items.length; i++){ %>
         <div class="card">
+
         <div><img src="<%=items[i].img_url%>" alt='image of products' height= "275" width="275"></div>
+
         </div>
         <% } %>
     </div>
 
 
-    <div>
-    <a href="/">About</a>
-    <a href="/">Help</a>
+    <div class="info">
+          <a href="/">About</a>
+          <a href="/">Help</a>
     </div>
 <footer>&copy; Copyright 2019 Ed & Jun</footer>
   </body>
