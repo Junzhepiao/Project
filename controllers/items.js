@@ -54,8 +54,8 @@ module.exports = {
           res.render('wishlist', {items:result[0]})
       })
 
-          })
     },
+
     deleteItem:(req,res)=>{
         knex('items').where('id', req.params.id).del()
         .then(()=>{
@@ -63,4 +63,4 @@ module.exports = {
         })
 
     }
-}
+  }
