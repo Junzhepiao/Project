@@ -107,11 +107,17 @@
 
 
    <div>
-       <button type="button" class="btn-sm"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <form action='/add_to_shopping_cart/<%=items.id%>' method="POST">
+        <button class="btn-sm" ><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    </form> 
     </div>
+
     <div>
-       <button type="button" class="btn-sm">Add to Wish Lists</button>
+    <form action='' method="POST">
+        <button class="btn-sm" ><i class="fas fa-cart-plus"></i> Add to Wish Lists</button>
+    </form> 
     </div>
+
         
   </body>
 </html>

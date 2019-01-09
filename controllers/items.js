@@ -61,6 +61,15 @@ module.exports = {
         .then(()=>{
           res.redirect('/get_postItem/'+ req.session.user_id)
         })
+    },
+    shoppingCart:(req,res)=>{
+        res.render('shopping_cart', {users:req.session.user, cart:req.session.shoppingCart})
+    },
+
+
+    addToShoppingCart:(req,res)=>{
 
     }
-  }
+}
+
+
