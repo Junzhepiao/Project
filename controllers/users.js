@@ -7,14 +7,18 @@ module.exports = {
   registerLogin: (req, res) => {
         knex('users').insert({
           name: req.body.name,
+          email: req.body.email, 
           password: req.body.password,
-          confirm_password: req.body.confirm_password
+          confirm_password: req.body.confirm_password,
+          venmo: req.body.venmo,
+          address: req.body.address
+
         }).then(() => {
           res.redirect('/login')
         })
   },
   login: (req, res) => {
-      knex('users').where('name', req.body.name).then((results)=> {
+      knex('users').where('email', req.body.email).then((results)=> {
         let user = results[0];
         if (user.password === req.body.password) {
           req.session.user_name = user.name

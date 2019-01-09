@@ -28,6 +28,25 @@ module.exports = {
         .then(()=>{
             res.redirect('/get_postItem/' + req.params.id)
             })
+    },
+    editItem:(req,res)=>{
+        knex('items').where('id',req.params.id).then((result)=>{
+            res.render('item_details', {items:result[0]})
+        })
+    },
+    updateItem:(req,res)=>{
+        knex('items').where('id', req.params.id).update({
+            item_name: req.body.item_name,
+            img_url: req.body.img_url,
+            description: req.body.description,
+            keyword: req.body.keyword,
+            date: req.body.date,
+            price: req.body.price,
+            users_id: req.session.user_id
+          })
+          .then(()=>{
+            res.redirect('/get_postItem/' + req.session.user_id)
+          })  
     }
-}
 
+}

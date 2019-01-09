@@ -13,7 +13,7 @@
         <section class="login">
             <h1>Login</h1>
             <form action="/login" method="POST">
-                <input type="text" name="name" placeholder="name">
+                <input type="text" name="email" placeholder="email">
                 <input type="password" name="password" placeholder="Password">
                 <button type="submit">Submit</button>
             </form>
@@ -23,8 +23,11 @@
             <h1>Register</h1>
             <form action="/register" method="POST">
                 <input type="text" name="name" placeholder="Name">
+                <input type="text" name="email" placeholder="email">
                 <input type="password" name="password" placeholder="Password">
-                <input type="password" name="password-confirm" placeholder="Confirm Password">
+                <input type="password" name="confirm_password" placeholder="Confirm Password">
+                <input type="string" name="venmo" placeholder="Venmo Account">
+                <input type="string" name="address" placeholder="address">
                 <button type="submit">Submit</button>
             </form>
         </section>

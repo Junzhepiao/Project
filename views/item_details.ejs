@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+
+  <body>
+  <div class="container">
+    <form action="/item/update/<%= items.id %>" method="post">
+    <label>Name:</label>
+    <input type="text" class="form-control" name="item_name" value="<%= items.item_name %>"><br>
+    <label>Img URL:</label>
+    <input type="text" class="form-control" name="img_url" value="<%= items.img_url %>"><br>
+    <label>Description:</label>
+    <input type="text" class="form-control" name="description" value="<%= items.description %>"><br>
+    <label>Keyword:</label>
+    <input type="text" class="form-control" name="keyword" value="<%= items.keyword %>"><br>
+    <label>Date:</label>
+    <input type="text" class="form-control" name="date" value="<%= items.date %>"><br>
+    <label>Price:</label>
+    <input type="text" class="form-control" name="price" value="<%= items.price %>"><br>
+    <input type="submit" class="btn btn-secondary btn-sm">
+    </form>
+</div>
+
+  </body>
+</html>
