@@ -21,11 +21,14 @@ module.exports = function(app){
   app.get('/item/details/:id', items.editItem); // id = items
   app.post('/item/update/:id', items.updateItem); // id = items
   app.get('/shoppingCart/:id', items.shoppingCart); // id = user id
-  app.get('/wishlist/:id', items.wishList); 
+  app.get('/get_wishlist/:id', items.getWishList)//id = users_id
+  //app.post('/wishlist/:id', items.addToWishList)//id = users_id
   app.post('/add_to_shopping_cart/:id', items.addToShoppingCart);// id = items id
-  // app.post('/wishlist/cart:id', items.fromWishListToCart) //id= users
+
   //app.get('/delete/item/:id', items.deleteItem)
 
+ 
+  
   app.get('/delete/item/:id', items.deleteItem)
 
   //comments

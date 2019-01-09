@@ -49,8 +49,8 @@ module.exports = {
 
           })
     },
-    wishList: (req,res)=>{
-      knex('items').where('id',req.params.id).then((result)=>{
+    getWishList: (req,res)=>{
+      knex('items').where('id',req.session.user_id).then((result)=>{
           res.render('wishlist', {items:result[0]})
       })
 
@@ -69,7 +69,15 @@ module.exports = {
 
     addToShoppingCart:(req,res)=>{
 
-    }
+     }
+//     addToWishList:(req,res)=>{
+//       knex('items').insert({
+//           item_name: req.body.item_name,
+//           img_url: req.body.img_url,
+//           description: req.body.description
+//       })
+//       .then(()=>{
+//           res.redirect('/get_wishlist/' + req.session.user_id)
+//           })
+//   }
 }
-
-

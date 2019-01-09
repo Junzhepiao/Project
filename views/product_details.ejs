@@ -5,7 +5,7 @@
     <title>Product Details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
+
         <style>.star-rating {
         direction: rtl;
         display: inline-block;
@@ -43,9 +43,9 @@
     <div><p>Description:<%=items.description%></p></div>
 
         <h1 class="display-6">NOTES:</h1>
-    
+
     <% for(let i=0; i<comments.length; i++){ %>
-    <div id="eachComment">   
+    <div id="eachComment">
     <div><strong><%= comments[i].users_name%></strong> :</div>
     <%   if (comments[i].rating === 5 ) {%>
     <i class="active fa fa-star" aria-hidden="true"></i>
@@ -68,14 +68,14 @@
     <% } else if (comments[i].rating === 1) {%>
     <i class="active fa fa-star" aria-hidden="true"></i>
     <% } %>
-    
+
     <div><%= comments[i].comment_content%></div>
     <div><small> -<%= comments[i].created_at%></small></div>
     </div>
     <% } %>
-       
+
     <form action="/product_comments/<%=items.id%>" method="post">
-    
+
     <div><%=users.name%></div>
 
     <div class="star-rating">
@@ -104,6 +104,16 @@
     <input type="text" name="comments" placeholder="Enter your comment" style="width: 600px; height: 100px;"><br>
     <input type="submit" class="btn btn-secondary btn-sm ">
     </form>
+
+      <div>
+            <a href="/protected">back</a>
+      </div>
+
+    <form class="" action="/get_wishlist/<%=items.id%>" method="post">
+          <button type="submit">Add to Wish Lists</button>
+    </form>
+
+
 
 
    <div>
