@@ -21,8 +21,8 @@ module.exports = function(app){
   app.get('/item/details/:id', items.editItem);
   app.post('/item/update/:id', items.updateItem);
 
-   app.get('/wishlist/:id', items.wishList)
-  // app.post('/wishlist/cart:id', items.fromWishListToCart)
+   app.get('/get_wishlist/:id', items.getWishList)
+  app.post('/wishlist/:id', items.addToWishList)
   //app.get('/delete/item/:id', items.deleteItem)
 
   app.get('/delete/item/:id', items.deleteItem)
