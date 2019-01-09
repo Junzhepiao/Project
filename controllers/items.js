@@ -47,6 +47,11 @@ module.exports = {
           .then(()=>{
             res.redirect('/get_postItem/' + req.session.user_id)
           })  
+    },
+    deleteItem:(req,res)=>{
+        knex('items').where('id', req.params.id).del()
+        .then(()=>{
+          res.redirect('/get_postItem/'+ req.session.user_id)
+        })
     }
-
 }
