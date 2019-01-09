@@ -46,12 +46,21 @@ module.exports = {
           })
           .then(()=>{
             res.redirect('/get_postItem/' + req.session.user_id)
+
           })
     },
     wishList: (req,res)=>{
       knex('items').where('id',req.params.id).then((result)=>{
           res.render('wishlist', {items:result[0]})
       })
-    }
 
+          })
+    },
+    deleteItem:(req,res)=>{
+        knex('items').where('id', req.params.id).del()
+        .then(()=>{
+          res.redirect('/get_postItem/'+ req.session.user_id)
+        })
+
+    }
 }
