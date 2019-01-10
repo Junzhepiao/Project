@@ -109,9 +109,9 @@
             <a href="/protected">back</a>
       </div>
 
-    <form class="" action="/get_wishlist/<%=items.id%>" method="post">
+    <!-- <form class="" action="/get_wishlist/<%=users.id%>" method="post">
           <button type="submit">Add to Wish Lists</button>
-    </form>
+    </form> -->
 
 
 
@@ -119,15 +119,15 @@
    <div>
     <form action='/add_to_shopping_cart/<%=items.id%>' method="POST">
         <button class="btn-sm" ><i class="fas fa-cart-plus"></i> Add to Cart</button>
-    </form> 
+    </form>
     </div>
 
     <div>
-    <form action='' method="POST">
+    <form action='/get_wishlist/<%users.id%>' method="POST">
         <button class="btn-sm" ><i class="fas fa-cart-plus"></i> Add to Wish Lists</button>
-    </form> 
+    </form>
     </div>
 
-        
+
   </body>
 </html>
