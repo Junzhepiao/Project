@@ -4,15 +4,16 @@ exports.up = function(knex, Promise) {
         table.increments();
         table.string("item_name");
         table.integer("price");
-        table.string("date")
-        table.string("keyword")
-        table.text("description")
-        table.text("img_url")
+        table.string("date");
+        table.string("keyword");
+        table.text("description");
+        table.text("img_url");
         table.integer('users_id')
             .references('id')
             .inTable('users')
             .onDelete('CASCADE')
             .notNullable();
+        
         table.timestamps(true, true);
     })
 };

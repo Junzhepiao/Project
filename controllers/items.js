@@ -89,7 +89,7 @@ module.exports = {
                     img_url:  req.session.shoppingCart_img_url,
                     users_id: req.session.user_id
                  }).then(()=>{
-                     res.redirect('/shoppingCart/' + req.session.user_id)
+                     res.redirect('/protected')
                  })
               })
         })
@@ -99,17 +99,48 @@ module.exports = {
          .then(()=>{
              res.redirect('/shoppingCart/'+ req.session.user_id)
          })
+     },
+     wishList:(req,res)=>{
+        knex('wish_list').where('users_id',req.session.user_id).then((result)=>{
+            if (result.length === 0) {
+                res.render('empty_wish_list', {users:req.session.user, WishList:result})
+            } else{
+                res.render('wishlist', {users:req.session.user, WishList:result})
+            }
+        })  
+    },
+     addToWishList:(req,res)=>{
+        knex('items').where('id', req.params.id).then((result)=>{
+            let wishList = result[0];
+            req.session.WishList=wishList;
+            req.session.WishList_item_name=wishList.item_name;
+            req.session.WishList_price=wishList.price;
+            req.session.WishList_date=wishList.date;
+            req.session.WishList_description=wishList.description;
+            req.session.WishList_img_url=wishList.img_url;
+            req.session.save(() => {
+                knex('wish_list').insert({
+                    item_name: req.session.WishList_item_name,
+                    price: req.session.WishList_price, 
+                    date: req.session.WishList_date,
+                    description: req.session.WishList_description,
+                    img_url:  req.session.WishList_img_url,
+                    users_id: req.session.user_id
+                 }).then(()=>{
+                     res.redirect('/protected')
+                 })
+              })
+        })
+     },
+     deleteFromWishList:(req,res)=>{
+         knex('wish_list').where('id',req.params.id).del()
+         .then(()=>{
+             res.redirect('/wishList/'+ req.session.user_id)
+         })
+     },
+
+     getOrders:(req,res)=>{
+         res.render('orders', {users: req.session.use})
      }
-
-
-//     addToWishList:(req,res)=>{
-//       knex('items').insert({
-//           item_name: req.body.item_name,
-//           img_url: req.body.img_url,
-//           description: req.body.description
-//       })
-//       .then(()=>{
-//           res.redirect('/get_wishlist/' + req.session.user_id)
-//           })
-//   }
 }
+

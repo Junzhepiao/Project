@@ -14,15 +14,22 @@
   <% for(let i = 0; i<cart.length; i++){ %>
       <div class="card">
       <h3><%= cart[i].item_name %></h3>
+      <h3>$<%= cart[i].price %></h3>
       <div><img src="<%=cart[i].img_url%>" alt='image of products' height= "275" width="275"></div>
+      
+      <div><a class="btn btn-secondary btn-sm btn-block" href=""> Check Out</a></div>
       <div><a class="btn btn-secondary btn-sm btn-block" href="/delete/item/from/cart/<%= cart[i].id %>"> Delete from Cart</a></div>
       </div>
   <% } %>
 </div>
 
-
-
-
+<div class="container" id="TotalPrice">
+<%  let TotalPrice = 0; %>
+<% for(let i = 0; i<cart.length; i++){ %>
+    <% TotalPrice += cart[i].price %>
+<% } %>
+<h3>Total Price: $<%= TotalPrice %></h3>
+</div>
 
   </body>
 </html>

@@ -1,25 +1,15 @@
 const knex = require("../db/knex.js");
 
-
 module.exports = {
-getWishList: (req,res)=>{
-  knex('wish_list').where('id',req.user_id).then((result)=>{
-      res.render('wishlist', {items:result[0]})
-  })
+    // get_wishlist:(req,res)=>{
+    //     knex('wish_list').where('users_id',req.session.user_id).then((result)=>{
+    //         if (result.length === 0) {
+    //             res.render('empty_shopping_cart', {users:req.session.user, cart:result})
+    //         } else{
+    //             res.render('shopping_cart', {users:req.session.user, cart:result})
+    //         }
+    //     })  
+    // },
 
-},
 
- addToWishList: (req, res)=>{
-      knex('items').insert({
-          item_name: req.body.item_name,
-          price: req.body.price,
-          date: req.body.date,
-          description: req.body.description,
-          img_url: req.body.img_url,
-          // users_id: req.body.users_id
-      })
-      .then(()=>{
-          res.redirect('/get_wishlist/' + req.params.id)
-          })
-  }
 }
