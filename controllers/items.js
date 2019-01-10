@@ -49,12 +49,12 @@ module.exports = {
 
           })
     },
-    getWishList: (req,res)=>{
-      knex('items').where('id',req.session.user_id).then((result)=>{
-          res.render('wishlist', {items:result[0]})
-      })
-
-    },
+    // getWishList: (req,res)=>{
+    //   knex('items').where('id',req.session.user_id).then((result)=>{
+    //       res.render('wishlist', {items:result[0]})
+    //   })
+    //
+    // },
 
     deleteItem:(req,res)=>{
         knex('items').where('id', req.params.id).del()

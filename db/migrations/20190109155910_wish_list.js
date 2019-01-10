@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
             .references('id')
             .inTable('users')
             .onDelete('CASCADE')
-            .notNullable();
+        //    .notNullable();
         table.timestamps(true, true);
     })
 };
