@@ -3,7 +3,7 @@ const index = require("../controllers/index.js")
 const users = require("../controllers/users.js")
 const items = require("../controllers/items.js")
 const comments = require("../controllers/comments.js")
-// const wish_list = require("../controllers/wish_list.js")
+
 
 
 module.exports = function(app){
@@ -22,7 +22,6 @@ module.exports = function(app){
   app.post('/postItem/:id', items.postItem); // id is items
   app.get('/item/details/:id', items.editItem); // id = items
   app.post('/item/update/:id', items.updateItem); // id = items
-<<<<<<< HEAD
   app.get('/shoppingCart/:id', items.shoppingCart); // id = user id
   app.get('/wishList/:id', items.wishList); // id = user id
 
@@ -32,15 +31,6 @@ module.exports = function(app){
   app.get('/delete/item/from/cart/:id', items.deleteFromCart); //id = cart item id
   app.get('/delete/item/from/WishList/:id', items.deleteFromWishList); //id = cart item id
   app.get('/get_orders/:id', items.getOrders);//id = user id
-=======
-  // app.get('/shoppingCart/:id', items.shoppingCart); // id = user id
-  // app.get('/get_wishlist/:id', items.getWishList)//id = users_id
-  // app.post('/add_to_wish_list/:id', items.addToWishList)//id = items_id
-  // app.post('/add_to_shopping_cart/:id', items.addToShoppingCart);// id = items id
-
-  // app.get('/delete/item/from/cart/:id', items.deleteFromCart); //id = cart item id
-  //app.get('/delete/item/:id', items.deleteItem)
->>>>>>> f496836b00bc603f8d2ee175a7ef241fdaf74b7d
 
 
 
