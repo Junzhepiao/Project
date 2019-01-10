@@ -5,32 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login/Registration</title>
+    <style media="screen">
+      .login {
+         padding:40px;
+          margin-bottom:0px;
+          margin:1px;
+      }
+        .register{
+          padding:40px;
+          margin-top: 15px;
+        }
+        .log{
+          color: black;
+          text-decoration: none;
+          margin-top: 20px;
+
+        }
+
+    </style>
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
     <main>
-        <a href="/logout">Logout</a>
+        <a class="log" href="/logout">Logout</a>
         <section class="login">
-            <h1>Login</h1>
-            <form action="/login" method="POST">
-                <input type="text" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="Password">
-                <button type="submit">Submit</button>
+            <h3>Login</h3>
+             <form action="/login" method="POST">
+              <div class="form-group row log">
+                <label class="col-sm-1 col-form-label"> Email</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control" name="email"  placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group row log">
+                <label class="col-sm-1 col-form-label">Password</label>
+                <div class="col-sm-4">
+                  <input type="password" class="form-control"  name="password" placeholder="Password">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Log in</button>
             </form>
         </section>
 
-        <section class="register">
-            <h1>Register</h1>
-            <form action="/register" method="POST">
-                <input type="text" name="name" placeholder="Name">
-                <input type="text" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="Password">
-                <input type="password" name="confirm_password" placeholder="Confirm Password">
-                <input type="string" name="venmo" placeholder="Venmo Account">
-                <input type="string" name="address" placeholder="address">
-                <button type="submit">Submit</button>
-            </form>
-        </section>
+
+  <section class="register">
+            <h3>Registration</h3>
+      <form action="/register" method="POST">
+            <div class="form-row">
+              <div class="form-group col-md-3 reg">
+                <label for="inputEmail4">Name</label>
+                <input type="text" class="form-control" name="name"  placeholder="Name">
+              </div>
+              <div class="form-group col-md-3 reg">
+                <label for="inputPassword4">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3 reg">
+                  <label for="inputAddress">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-3 reg">
+                <label for="inputAddress">Cofirm Password</label>
+                <input type="password" class="form-control"  name="confirmpassword"  placeholder="Confirm Password">
+            </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3 reg">
+                <label>Venmo Account</label>
+                <input type="text" class="form-control" name="venmoaccount" placeholder="Venmo Account">
+              </div>
+              <div class="form-group col-md-3">
+                <label>Address</label>
+                <input type="text" class="form-control" name="address" placeholder="Address">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+       </form>
+  </section>
     </main>
 </body>
 </html>
