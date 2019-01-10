@@ -65,15 +65,16 @@ module.exports = {
     shoppingCart:(req,res)=>{
         knex('shopping_cart').where('users_id',req.session.user_id).then((result)=>{
             if (result.length === 0) {
-                res.render('empty_shopping_cart', {users:req.session.user, cart:req.session.shoppingCart})
+                res.render('empty_shopping_cart', {users:req.session.user, cart:result})
             } else{
-                res.render('shopping_cart', {users:req.session.user, cart:req.session.shoppingCart})
+                res.render('shopping_cart', {users:req.session.user, cart:result})
             }
         })  
     },
     addToShoppingCart:(req,res)=>{
         knex('items').where('id', req.params.id).then((result)=>{
             let cart = result[0];
+            req.session.shoppingCart=cart;
             req.session.shoppingCart_item_name=cart.item_name;
             req.session.shoppingCart_price=cart.price;
             req.session.shoppingCart_date=cart.date;
@@ -92,7 +93,14 @@ module.exports = {
                  })
               })
         })
+     },
+     deleteFromCart:(req,res)=>{
+         knex('shopping_cart').where('id',req.params.id).del()
+         .then(()=>{
+             res.redirect('/shoppingCart/'+ req.session.user_id)
+         })
      }
+
 
 //     addToWishList:(req,res)=>{
 //       knex('items').insert({

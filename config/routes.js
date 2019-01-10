@@ -24,7 +24,7 @@ module.exports = function(app){
   app.get('/get_wishlist/:id', items.getWishList)//id = users_id
   //app.post('/wishlist/:id', items.addToWishList)//id = users_id
   app.post('/add_to_shopping_cart/:id', items.addToShoppingCart);// id = items id
-  //app.get('/addToShoppingCart', items.addToShoppingCart)
+  app.get('/delete/item/from/cart/:id', items.deleteFromCart); //id = cart item id
   //app.get('/delete/item/:id', items.deleteItem)
 
  
