@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <style media="screen">
+    body{
+      margin:0;
+    }
     .banner{
       text-align: center;
       border-bottom: 1px solid black;
       position: relative;
       height: 80px;
       background-color: #EA601D;
+      margin-bottom: 20px;
     }
 
     .brand {
@@ -19,6 +23,14 @@
       top: 10px;
       color: white;
       font-size: 2em;
+    }
+    .backs{
+      text-align:left;
+      padding-left: 20px;
+      color:black;
+    }
+    .empty_message{
+      text-align:center;
     }
     </style>
   </head>
@@ -28,8 +40,12 @@
         <span class="brand">Shopright</span>
     </div>
 
-  <h1><%= users.name%>'s shopping cart</h1>
+    <span><a  class ="backs" href="/protected">Main page</a></span>
+
+  <div class="empty_message">
+    <h1><%= users.name%>'s shopping cart</h1>
 
   <h3>You do not have any items in your shopping cart!</h3>
+  </div>
   </body>
 </html>

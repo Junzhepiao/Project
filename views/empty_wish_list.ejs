@@ -7,12 +7,17 @@
 
 
     <style media="screen">
+    body{
+      margin:0;
+
+    }
     .banner{
       text-align: center;
       border-bottom: 1px solid black;
       position: relative;
       height: 80px;
       background-color: #EA601D;
+      margin-bottom: 20px;
     }
 
     .brand {
@@ -20,6 +25,14 @@
       top: 10px;
       color: white;
       font-size: 2em;
+    }
+    .backs{
+      text-align:left;
+      padding-left: 20px;
+      color:black;
+    }
+    .emyty_message{
+      text-align:center;
     }
     </style>
   </head>
@@ -29,8 +42,12 @@
               <i class="fas fa-shopping-cart fa-md"></i>
               <span class="brand">Shopright</span>
           </div>
+
+          <span><a  class ="backs" href="/protected">Main page</a></span>
+          <div class="emyty_message">
         <h1><%= users.name%>'s wish list</h1>
 
         <h3>You do not have any items in your wish list!</h3>
+        </div>
   </body>
 </html>
