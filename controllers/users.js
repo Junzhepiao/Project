@@ -7,7 +7,7 @@ module.exports = {
   registerLogin: (req, res) => {
         knex('users').insert({
           name: req.body.name,
-          email: req.body.email, 
+          email: req.body.email,
           password: req.body.password,
           confirm_password: req.body.confirm_password,
           venmo: req.body.venmo,
@@ -39,11 +39,14 @@ module.exports = {
     knex('items').then((result)=>{
 
       res.render('protected', {items:result, users:req.session.user})
-  
+
   })
 },
   logout: (req, res)=>{
     req.session.user = null;
     res.redirect('/login');
+  },
+  showAbout: (req, res)=> {
+     res.render('about');
   }
 }

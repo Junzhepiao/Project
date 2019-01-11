@@ -491,3 +491,339 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
   return knex.schema.dropTable("wish_list");
 }; -->
+<!-- footer{
+  margin-top: 21px;
+  text-align: center;
+  background-color: silver;
+  border-top: 1px solid black;
+  line-height: 30px;
+  margin-bottom: :10px;
+} -->
+
+
+
+
+<!-- /* .items{
+ padding-left:30px;
+ padding-bottom:80px;
+ margin-top:40px;
+}
+.jackie {
+ margin-top:50px;
+} */
+.notes {
+ padding-left: 100px;
+}
+
+.sub {
+ margin-left: 170px;
+ margin-top:30px;
+}
+
+#eachComment {
+ margin-left: 170px;
+ padding-left: 100px;
+}
+.note {
+ padding-left: 100px;
+ margin-left:2
+} -->
+
+
+ <!-- css file. product details
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+        <style>
+
+        .star-rating {
+        direction: rtl;
+        display: inline-block;
+        padding: 20px
+      }
+
+        .star-rating input[type=radio] {
+            display: none
+        }
+
+    .star-rating label {
+        color: #bbb;
+        font-size: 18px;
+        padding: 0;
+        cursor: pointer;
+        -webkit-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover ~ label,
+    .star-rating input[type=radio]:checked ~ label {
+        color: #f2b600
+    }
+    #eachComment{
+         padding:4%;
+    }
+
+
+    .banner{
+      text-align: center;
+      border-bottom: 1px solid black;
+      position: relative;
+      height: 70px;
+      background-color: #EA601D;
+    }
+
+    .brand {
+      position: relative;
+      top: 10px;
+      color: white;
+      font-size: 2em;
+    }
+
+     .items1 {
+     padding-left:20px;
+     text-align:center;
+     /* padding-bottom:80px; */
+     /* margin-top:40px; */
+   }
+
+   .backs{
+     text-align:left;
+   }
+
+   .sub1{
+      /* padding-left: 40px; */
+     /* margin-left: 90px; */
+       /* margin-bottom:1px; */
+      /* margin-right:70px; */
+      /* padding:10px; */
+      margin-left:30px;
+      /* float:left;
+      clear:both; */
+
+     /* display:flex; */
+   }
+
+   .sub2{
+     display: flex;
+     margin:15px;
+   }
+
+   .sub3 , .sub4{
+     /* text-align: center; */
+     /* padding-left: 430px; */
+     margin-left:50px;
+     /* float:right; */
+   }
+
+   .sub3{
+     float:right;
+   }
+
+   .items {
+     margin-top:10px;
+   }
+
+
+   /* .items1, .backs {
+     float:right;
+   } */
+
+
+
+   .info {
+     text-align: center;
+     color: white;
+     background-color: silver;
+     border-top: 1px solid black;
+     line-height: 30px;
+     /* margin:0px; */
+     padding: 5px 0;
+   }
+
+   .enter {
+     margin-bottom:20px;
+   }
+
+
+   /* .commentary {
+     margin-bottom:15px;
+   } */
+
+    /* .notes {
+      margin-top:10px;
+    } */
+
+   /* .jackie {
+     margin-top:50px;
+   } */ */
+    /* .notes {
+     padding-left: 100px;
+   }
+   .items .backs {
+
+   }
+
+   .sub {
+     margin-left: 170px;
+     margin-top:30px;
+   }
+
+   #eachComment {
+     margin-left: 170px;
+     padding-left: 100px;
+   }
+   .note {
+     padding-left: 100px;
+     margin-left:2
+   } */
+
+   /* .users {
+     margin-left: 100px;
+   } */
+
+
+   /* .items .backs {
+     float:right;
+   } */
+
+    /* .a {
+      text-decoration: none;
+      color: black;
+} */
+
+.jackie{
+  margin-top:1px;
+}
+
+.image1 {
+  margin-top:0px;
+
+}
+
+a{
+  color:black;
+  float:left;
+}
+
+
+    </style>
+
+
+    </head>
+  <body>
+      <div class="banner">
+          <i class="fas fa-shopping-cart fa-md"></i>
+          <span class="brand">Shopright</span>
+      </div>
+
+ <section class="items1">
+    <span><a  class ="backs" href="/protected">back</a></span>
+
+    <div class="items">
+        <h5 class="jackie"><%=items.item_name%></h5><br>
+        <div class="image1"><img src="<%=items.img_url%>" alt='image of products' height= "275" width="275"></div>
+        <div><p>Description:<%=items.description%></p></div>
+    </div>
+ <div class="comments">
+
+   <h5 class="display-6">NOTES:</h5>
+
+   <% for(let i=0; i<comments.length; i++){ %>
+     <div id="eachComment">
+       <div class= "note"><strong><%= comments[i].users_name%></strong></div>
+       <%   if (comments[i].rating === 5 ) {%>
+         <i class="active fa fa-star" aria-hidden="true"></i>
+         <i class="active fa fa-star" aria-hidden="true"></i>
+         <i class="active fa fa-star" aria-hidden="true"></i>
+         <i class="active fa fa-star" aria-hidden="true"></i>
+         <i class="active fa fa-star" aria-hidden="true"></i>
+         <% } else if (comments[i].rating === 4) {%>
+           <i class="active fa fa-star" aria-hidden="true"></i>
+           <i class="active fa fa-star" aria-hidden="true"></i>
+           <i class="active fa fa-star" aria-hidden="true"></i>
+           <i class="active fa fa-star" aria-hidden="true"></i>
+           <% } else if (comments[i].rating === 3) {%>
+             <i class="active fa fa-star" aria-hidden="true"></i>
+             <i class="active fa fa-star" aria-hidden="true"></i>
+             <i class="active fa fa-star" aria-hidden="true"></i>
+             <% } else if (comments[i].rating === 2) {%>
+               <i class="active fa fa-star" aria-hidden="true"></i>
+               <i class="active fa fa-star" aria-hidden="true"></i>
+               <% } else if (comments[i].rating === 1) {%>
+                 <i class="active fa fa-star" aria-hidden="true"></i>
+                 <% } %>
+
+                 <div class= "notes"><%= comments[i].comment_content%></div>
+                 <div><small><%= comments[i].created_at%></small></div>
+               </div>
+               <% } %>
+ </div>
+
+    <form  class ="commentary" action="/product_comments/<%=items.id%>" method="post">
+
+    <!-- <div class= "users"><%=users.name%></div> -->
+
+    <div class="star-rating">
+    <input id="star-5" type="radio" name="rating" value="5">
+    <label for="star-5" title="5 stars">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    <input id="star-4" type="radio" name="rating" value="4">
+    <label for="star-4" title="4 stars">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    <input id="star-3" type="radio" name="rating" value="3">
+    <label for="star-3" title="3 stars">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    <input id="star-2" type="radio" name="rating" value="2">
+    <label for="star-2" title="2 stars">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    <input id="star-1" type="radio" name="rating" value="1">
+    <label for="star-1" title="1 star">
+            <i class="active fa fa-star" aria-hidden="true"></i>
+    </label>
+    </div>
+
+    <input  class="enter" type="text" name="comments" placeholder="Enter your comment" style="width: 600px; height: 100px;"><br>
+    <input type="submit" class="btn btn-primary btn-sm sub1">
+    </form>
+
+      <div class="sub2">
+        <div class ="sub3">
+          <form action='/add_to_shopping_cart/<%=items.id%>' method="POST">
+            <button id ="button1" class="btn-sm btn-primary" ><i class="fas fa-cart-plus"></i> Add to Cart</button>
+          </form>
+        </div>
+
+        <div class ="sub4">
+          <form action='/add_to_wish_list/<%=items.id%>' method="POST">
+            <button id=button2  class="btn-sm btn-primary" ><i class="fas fa-star"></i></i> Add to Wish Lists</button>
+          </form>
+        </div>
+      </div>
+
+    <!-- <form class="" action="/get_wishlist/<%=users.id%>" method="post">
+          <button type="submit">Add to Wish Lists</button>
+    </form> -->
+
+
+
+
+  </section>
+  <footer  class="info">
+      <span>&copy; Copyright 2019 Ed & Jun</span>
+  </footer>
+
+
+  </body>
+</html> -->

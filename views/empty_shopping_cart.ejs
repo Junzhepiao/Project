@@ -3,20 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+    .banner{
+      text-align: center;
+      border-bottom: 1px solid black;
+      position: relative;
+      height: 80px;
+      background-color: #EA601D;
+    }
+
+    .brand {
+      position: relative;
+      top: 10px;
+      color: white;
+      font-size: 2em;
+    }
+    </style>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   </head>
-
   <body>
-  
+    <div class="banner">
+        <i class="fas fa-shopping-cart fa-md"></i>
+        <span class="brand">Shopright</span>
+    </div>
+
   <h1><%= users.name%>'s shopping cart</h1>
 
   <h3>You do not have any items in your shopping cart!</h3>
-
-
-
-
-
-
-
   </body>
 </html>
