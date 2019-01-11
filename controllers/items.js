@@ -74,6 +74,7 @@ module.exports = {
             req.session.shoppingCart_date=cart.date;
             req.session.shoppingCart_description=cart.description;
             req.session.shoppingCart_img_url=cart.img_url;
+            req.session.shoppingCart_users_id=cart.users_id;
             req.session.save(() => {
                 knex('shopping_cart').insert({
                     item_name: req.session.shoppingCart_item_name,
@@ -81,7 +82,9 @@ module.exports = {
                     date: req.session.shoppingCart_date,
                     description: req.session.shoppingCart_description,
                     img_url:  req.session.shoppingCart_img_url,
-                    users_id: req.session.user_id
+                    users_id: req.session.user_id,
+                    quantity: 1,
+                    owner_id: req.session.shoppingCart_users_id
                  }).then(()=>{
                      res.redirect('/protected')
                  })
@@ -115,6 +118,8 @@ module.exports = {
             req.session.WishList_date=wishList.date;
             req.session.WishList_description=wishList.description;
             req.session.WishList_img_url=wishList.img_url;
+            req.session.WishList_item_id=wishList.id;
+            req.session.WishList_users_id=wishList.users_id;
             req.session.save(() => {
                 knex('wish_list').insert({
                     item_name: req.session.WishList_item_name,
@@ -122,7 +127,8 @@ module.exports = {
                     date: req.session.WishList_date,
                     description: req.session.WishList_description,
                     img_url:  req.session.WishList_img_url,
-                    users_id: req.session.user_id
+                    users_id: req.session.user_id,
+                    item_id: req.session.WishList_item_id
                  }).then(()=>{
                      res.redirect('/protected')
                  })
@@ -135,9 +141,44 @@ module.exports = {
              res.redirect('/wishList/'+ req.session.user_id)
          })
      },
-
-     getOrders:(req,res)=>{
-         res.render('orders', {users: req.session.use})
+     fromWishListToShoppingCart:(req,res)=>{
+        knex('items').where('id', req.params.id).then((result)=>{
+            let cart = result[0];
+            req.session.shoppingCart=cart;
+            req.session.shoppingCart_item_name=cart.item_name;
+            req.session.shoppingCart_price=cart.price;
+            req.session.shoppingCart_date=cart.date;
+            req.session.shoppingCart_description=cart.description;
+            req.session.shoppingCart_img_url=cart.img_url;
+            req.session.shoppingCart_users_id=cart.users_id;
+            req.session.save(() => {
+                knex('shopping_cart').insert({
+                    item_name: req.session.shoppingCart_item_name,
+                    price: req.session.shoppingCart_price, 
+                    date: req.session.shoppingCart_date,
+                    description: req.session.shoppingCart_description,
+                    img_url:  req.session.shoppingCart_img_url,
+                    users_id: req.session.user_id,
+                    quantity:1,
+                    owner_id: req.session.shoppingCart_users_id
+                 }).then(()=>{
+                    knex('wish_list').where('item_id', req.params.id).del().then(()=>{
+                     res.redirect('/protected')
+                    })
+                 })
+              })
+        })
+     },
+     updateQuantity: (req,res)=>{
+        knex('shopping_cart').where('id', req.params.id).update({
+            quantity: req.body.quantity
+        })
+        .then(()=>{
+            res.redirect('/shoppingCart/'+ req.session.user_id)
+        })
+     },
+     checkOut:(req,res)=>{
+         res.render('orders', {users:req.session.user})
      }
 }
 

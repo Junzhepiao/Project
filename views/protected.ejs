@@ -39,14 +39,9 @@
     <a href="/get_postItem/<%=users.id%>">Post Item</a>
     <a href="/shoppingCart/<%=users.id%>">Shopping Cart</a>
     <a href="/wishList/<%=users.id%>">Wish Lists</a>
-    <a href="/get_orders/<%=users.id%>">Orders</a>
 
-    <div class="search-container">
-        <form action="/" method="post">
-            <input type="text" placeholder="Search.." name="search" >
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+
+  
 
     <div class="container">
         <% for(let i = 0; i<items.length; i++){ %>

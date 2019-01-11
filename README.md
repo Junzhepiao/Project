@@ -365,3 +365,129 @@ overflow-x:visible;
    </form>
 </section>
 </main> --> -->
+
+
+
+<!-- DB
+20190107132913_users.js
+
+
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable("users", (table) => {
+        table.increments();
+        table.string("name");
+        table.string("password");
+        table.string("confirm_password");
+        table.integer("rating");
+        table.string('email');
+        table.string('venmo');
+        table.string('address');
+        table.timestamps(true, true);
+    })
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable("users");
+}; -->
+
+
+<!-- //20190107132922_items.js
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable("items", (table) => {
+        table.increments();
+        table.string("item_name");
+        table.integer("price");
+        table.string("date");
+        table.string("keyword");
+        table.text("description");
+        table.text("img_url");
+        table.integer('users_id')
+            .references('id')
+            .inTable('users')
+            .onDelete('CASCADE')
+            .notNullable();
+        
+        table.timestamps(true, true);
+    })
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable("items");
+}; -->
+
+
+<!-- //20190107132928_comments.js
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable("comments", (table) => {
+        table.increments();
+        table.string("users_name");
+        table.integer("rating")
+        table.text("comment_content")
+        table.integer('users_id')
+            .references('id')
+            .inTable('users')
+            .onDelete('CASCADE')
+            .notNullable();
+        table.integer('item_id')
+            .references('id')
+            .inTable('items')
+            .onDelete('CASCADE')
+            .notNullable();
+        table.timestamps(true, true);
+    })
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable("comments");
+}; -->
+
+<!-- //20190109155638_shopping_cart.js
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable("shopping_cart", (table) => {
+        table.increments();
+        table.string("item_name");
+        table.integer("price");
+        table.string("date");
+        table.text("description");
+        table.text("img_url");
+        table.integer('quantity');
+        table.integer('owner_id');
+        table.integer('users_id')
+            .references('id')
+            .inTable('users')
+            .onDelete('CASCADE')
+            .notNullable();
+        table.timestamps(true, true);
+    })
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable("shopping_cart");
+}; -->
+
+
+<!-- //20190109155910_wish_list.js
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable("wish_list", (table) => {
+        table.increments();
+        table.string("item_name");
+        table.integer("price");
+        table.string("date")
+        table.text("description")
+        table.text("img_url")
+        table.integer('users_id')
+            .references('id')
+            .inTable('users')
+            .onDelete('CASCADE')
+        //    .notNullable();
+        table.integer('item_id')
+        .references('id')
+        .inTable('items')
+        .onDelete('CASCADE')
+        table.timestamps(true, true);
+    })
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable("wish_list");
+}; -->

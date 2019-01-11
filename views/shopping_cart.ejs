@@ -17,7 +17,18 @@
       <h3>$<%= cart[i].price %></h3>
       <div><img src="<%=cart[i].img_url%>" alt='image of products' height= "275" width="275"></div>
       
-      <div><a class="btn btn-secondary btn-sm btn-block" href=""> Check Out</a></div>
+
+      <div>
+      <form action='/update/quantity/<%=cart[i].id%>' method="POST">
+          <label>Select Quantity: </label>
+          <input type="number" name="quantity" min="1" max="10" value='<%= cart[i].quantity %>'>
+          <button class="btn-sm" ><i class="fas fa-cart-plus"></i> Update</button>
+      </form>
+      </div>
+    
+
+
+
       <div><a class="btn btn-secondary btn-sm btn-block" href="/delete/item/from/cart/<%= cart[i].id %>"> Delete from Cart</a></div>
       </div>
   <% } %>
@@ -26,9 +37,16 @@
 <div class="container" id="TotalPrice">
 <%  let TotalPrice = 0; %>
 <% for(let i = 0; i<cart.length; i++){ %>
-    <% TotalPrice += cart[i].price %>
+    <% let TolOfEach = (cart[i].price)*(cart[i].quantity) %>
+    <% TotalPrice += TolOfEach %>
 <% } %>
 <h3>Total Price: $<%= TotalPrice %></h3>
+</div>
+
+<div>
+<form action='/check_out/<%= users.id%>' method="POST">
+    <button class="btn-sm" ><i class="fas fa-cart-plus"></i>Check Out</button>
+</form>
 </div>
 
   </body>

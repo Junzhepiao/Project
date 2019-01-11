@@ -17,14 +17,19 @@
          <h3><%= WishList[i].item_name %></h3>
          <h3>$<%= WishList[i].price %></h3>
          <div><img src="<%=WishList[i].img_url%>" alt='image of products' height= "275" width="275"></div>
+        
+         <div>
+         <form action='/from_wish_list_to_shopping_cart/<%= WishList[i].item_id %>' method="POST">
+             <button class="btn btn-secondary btn-sm btn-block" ><i class="fas fa-cart-plus"></i> Add to Cart</button>
+         </form>
+         </div>
          
-         <div><a class="btn btn-secondary btn-sm btn-block" href=""> Add to Cart</a></div>
          <div><a class="btn btn-secondary btn-sm btn-block" href="/delete/item/from/WishList/<%= WishList[i].id %>"> Delete from Wish List</a></div>
          </div>
      <% } %>
    </div>
 
-
+    
 
 
   </body>
