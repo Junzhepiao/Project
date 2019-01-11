@@ -59,6 +59,25 @@
 
 
      <div class="container">
+<<<<<<< HEAD
+
+         <% for(let i = 0; i<WishList.length; i++){ %>
+               <div class="card">
+               <h3><%= WishList[i].item_name %></h3>
+               <h3>$<%= WishList[i].price %></h3>
+               <div><img src="<%=WishList[i].img_url%>" alt='image of products' height= "275" width="275"></div>
+
+               <div>
+             <form action='/from_wish_list_to_shopping_cart/<%= WishList[i].item_id %>' method="POST">
+                 <button class="btn btn-secondary btn-sm btn-block" ><i class="fas fa-cart-plus"></i> Add to Cart</button>
+             </form>
+             </div>
+             <div><a class="btn btn-secondary btn-sm btn-block" href="/delete/item/from/WishList/<%= WishList[i].id %>"> Delete from Wish List</a></div>
+             </div>
+
+
+           <% } %>
+=======
      <% for(let i = 0; i<WishList.length; i++){ %>
          <div class="card">
          <h3><%= WishList[i].item_name %></h3>
@@ -73,6 +92,7 @@
          <div><a id="btn2" class="btn btn-secondary btn-sm btn-block" href="/delete/item/from/WishList/<%= WishList[i].id %>"> Delete from Wish List</a></div>
          </div>
      <% } %>
+>>>>>>> 7678419c2cf04d5d274b8e3be2176568b40adf27
    </div>
 
     
