@@ -9,6 +9,7 @@ const comments = require("../controllers/comments.js")
 module.exports = function(app){
   app.get('/', index.index);
   app.get('/login', users.showLogin);
+  app.get('/about', users.showAbout);
   app.post('/register', users.registerLogin)
   app.post('/login', users.login);
 

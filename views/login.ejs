@@ -8,12 +8,15 @@
     <style media="screen">
       .login {
          padding:40px;
-          margin-bottom:0px;
-          margin-top:1px;
+          margin-bottom:1px;
+          /* margin-top:1px; */
       }
         .register{
-          padding:1px;
-          margin-top: 5px;
+          padding:40px;
+          margin-bottom: 1px;
+          /* margin-top: 5px; */
+          /* margin-right:50px; */
+
         }
         .log{
           color: black;
@@ -36,6 +39,7 @@
           position: relative;
           height: 80px;
           background-color: #EA601D;
+          margin-bottom:0px;
         }
 
         .brand {
@@ -44,6 +48,10 @@
           color: white;
           font-size: 2em;
 
+        }
+
+        .reg {
+          margin-bottom:50px;
         }
 
     </style>
@@ -61,7 +69,7 @@
     <main>
         <!-- <a class="log" href="/logout">Logout</a> -->
         <section class="login">
-            <h3>Login</h3>
+            <h4>Login</h4>
              <form action="/login" method="POST">
               <div class="form-group row log">
                 <label class="col-sm-1 col-form-label"> Email</label>
@@ -81,35 +89,29 @@
 
 
   <section class="register">
-            <h3>Registration</h3>
+            <h4 class ="reg">Registration</h4>
       <form action="/register" method="POST">
             <div class="form-row">
               <div class="form-group col-md-3 reg">
-                <label for="inputEmail4">Name</label>
                 <input type="text" class="form-control" name="name"  placeholder="Name">
               </div>
               <div class="form-group col-md-3 reg">
-                <label for="inputPassword4">Email</label>
                 <input type="email" class="form-control" name="email" placeholder="Email">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-3 reg">
-                  <label for="inputAddress">Password</label>
                   <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
             <div class="form-group col-md-3 reg">
-                <label for="inputAddress">Cofirm Password</label>
                 <input type="password" class="form-control"  name="confirmpassword"  placeholder="Confirm Password">
             </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-3 reg">
-                <label>Venmo Account</label>
                 <input type="text" class="form-control" name="venmoaccount" placeholder="Venmo Account">
               </div>
               <div class="form-group col-md-3">
-                <label>Address</label>
                 <input type="text" class="form-control" name="address" placeholder="Address">
               </div>
             </div>
