@@ -3,24 +3,63 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+      .card{
+        padding-bottom:30px;
+      }
+      .banner{
+        text-align: center;
+        border-bottom: 1px solid black;
+        position: relative;
+        height: 80px;
+        background-color: #EA601D;
+        width:100%;
+      }
+      .brand {
+        position: relative;
+        top: 10px;
+        color: white;
+        font-size: 2em;
+      }
+
+      .card{
+        margin:20px;
+      }
+
+      .welcome {
+        text-align: right;
+      }
+
+      .pricing{
+        display:flex;
+        flex: right;
+      }
+
+
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   </head>
 
   <body>
-  
-  <h1><%= users.name%>'s shopping cart</h1>
-
-  <div class="container">
-  <% for(let i = 0; i<cart.length; i++){ %>
-      <div class="card">
-      <h3><%= cart[i].item_name %></h3>
-      <h3>$<%= cart[i].price %></h3>
-      <div><img src="<%=cart[i].img_url%>" alt='image of products' height= "275" width="275"></div>
-      
-      <div><a class="btn btn-secondary btn-sm btn-block" href=""> Check Out</a></div>
-      <div><a class="btn btn-secondary btn-sm btn-block" href="/delete/item/from/cart/<%= cart[i].id %>"> Delete from Cart</a></div>
-      </div>
-  <% } %>
+   <div class="banner">
+     <i class="fas fa-shopping-cart fa-md"></i>
+     <span class="brand">Shopright</span>
+   </div>
+    <div>
+       <h2 class= "welcome"><%= users.name%>'s shopping cart</h2>
+    </div>
+  <div class="containers">
+      <% for(let i = 0; i<cart.length; i++){ %>
+          <div class="card">
+          <h3><%= cart[i].item_name %></h3>
+          <h3 class="pricing">$<%= cart[i].price %></h3>
+          <div><img src="<%=cart[i].img_url%>" alt='image of products' height= "275" width="275"></div>
+          <div><a class="btn btn-secondary btn-sm btn-block" href=""> Check Out</a></div>
+          <div><a class="btn btn-secondary btn-sm btn-block" href="/delete/item/from/cart/<%= cart[i].id %>"> Delete from Cart</a></div>
+          <hr>
+          </div>
+      <% } %>
 </div>
 
 <div class="container" id="TotalPrice">

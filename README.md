@@ -365,3 +365,12 @@ overflow-x:visible;
    </form>
 </section>
 </main> --> -->
+
+footer{
+  margin-top: 21px;
+  text-align: center;
+  background-color: silver;
+  border-top: 1px solid black;
+  line-height: 30px;
+  margin-bottom: :10px;
+}
