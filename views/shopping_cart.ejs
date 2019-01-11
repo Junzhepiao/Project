@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <style media="screen">
       .card{
         padding-bottom:30px;
@@ -15,9 +17,6 @@
         background-color: #EA601D;
         margin-top:20px;
         margin-bottom:30px;
-        /* padding:0; */
-        /* margin-bottom:40px; */
-        /* width:100%; */
       }
       .brand {
         position: relative;
@@ -41,7 +40,6 @@
 
       a {
         color:black;
-        /* text-decoration: none; */
         font-size:18px;
         margin:10px;
       }
@@ -49,10 +47,20 @@
 
       .containers{
         margin-top:10px;
+        text-align:center;
+      }
+      #check_out{
+          text-align:center;
+      }
+      .pricing{
+        text-align:center;
+    }
+      h3 {
+          text-align:center;
+          align-content:center;
       }
 
     </style>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   </head>
 
@@ -69,9 +77,9 @@
       <% for(let i = 0; i<cart.length; i++){ %>
           <div class="card">
           <h3><%= cart[i].item_name %></h3>
-          <h3 class="pricing">$<%= cart[i].price %></h3>
+          <h3 >$<%= cart[i].price %></h3>
+
           <div><img src="<%=cart[i].img_url%>" alt='image of products' height= "275" width="275"></div>
-          <div><a class="btn btn-secondary btn-sm btn-block" href=""> Check Out</a></div>
           <div><a class="btn btn-secondary btn-sm btn-block" href="/delete/item/from/cart/<%= cart[i].id %>"> Delete from Cart</a></div>
           <hr>
           </div>
@@ -81,9 +89,16 @@
 <div class="container" id="TotalPrice">
 <%  let TotalPrice = 0; %>
 <% for(let i = 0; i<cart.length; i++){ %>
-    <% TotalPrice += cart[i].price %>
+    <% let TolOfEach = (cart[i].price)*(cart[i].quantity) %>
+    <% TotalPrice += TolOfEach %>
 <% } %>
 <h3>Total Price: $<%= TotalPrice %></h3>
+</div>
+
+<div id="check_out">
+<form action='/check_out/<%= users.id%>' method="POST">
+    <button class="btn btn-secondary btn-sm btn-block" ><i class="fas fa-cart-plus"></i>Check Out</button>
+</form>
 </div>
 
   </body>

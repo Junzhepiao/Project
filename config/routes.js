@@ -25,17 +25,21 @@ module.exports = function(app){
   app.post('/item/update/:id', items.updateItem); // id = items
   app.get('/shoppingCart/:id', items.shoppingCart); // id = user id
   app.get('/wishList/:id', items.wishList); // id = user id
+  app.get('/delete/item/:id', items.deleteItem);
 
   app.post('/add_to_shopping_cart/:id', items.addToShoppingCart);// id = items id
   app.post('/add_to_wish_list/:id', items.addToWishList);// id = items id
+  app.post('/from_wish_list_to_shopping_cart/:id', items.fromWishListToShoppingCart);// id = items id
 
   app.get('/delete/item/from/cart/:id', items.deleteFromCart); //id = cart item id
   app.get('/delete/item/from/WishList/:id', items.deleteFromWishList); //id = cart item id
-  app.get('/get_orders/:id', items.getOrders);//id = user id
+  //app.get('/get_orders/:id', items.getOrders);//id = user id
+  app.post('/update/quantity/:id', items.updateQuantity); // id = shopping_cart id
 
+//check out
+  app.post('/check_out/:id', items.checkOut); // id = user id
 
-
-  app.get('/delete/item/:id', items.deleteItem)
+  
 
   //comments
   app.post('/product_comments/:id', comments.postComments);

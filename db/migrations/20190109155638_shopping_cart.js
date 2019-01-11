@@ -4,9 +4,11 @@ exports.up = function(knex, Promise) {
         table.increments();
         table.string("item_name");
         table.integer("price");
-        table.string("date")
-        table.text("description")
-        table.text("img_url")
+        table.string("date");
+        table.text("description");
+        table.text("img_url");
+        table.integer('quantity');
+        table.integer('owner_id');
         table.integer('users_id')
             .references('id')
             .inTable('users')
