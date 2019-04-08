@@ -178,7 +178,17 @@ module.exports = {
         })
      },
      checkOut:(req,res)=>{
-         res.render('orders', {users:req.session.user})
-     }
+        knex('shopping_cart').where('users_id', req.session.user_id).then((results)=>{
+            knex('check_out').insert(results).then(()=>{
+                knex('shopping_cart').where('users_id', req.session.user_id).del()
+                .then(()=>{
+                  res.redirect('/orders/'+ req.session.user_id)  
+                })
+            })
+        })
+    },
+    getOrders:(req,res)=>{
+        res.render('orders',{users:req.session.user})
+    }
 }
 

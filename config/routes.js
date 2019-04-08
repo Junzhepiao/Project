@@ -38,7 +38,7 @@ module.exports = function(app){
 
 //check out
   app.post('/check_out/:id', items.checkOut); // id = user id
-
+  app.get('/orders/:id', items.getOrders); //id= user id
   
 
   //comments
